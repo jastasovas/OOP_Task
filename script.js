@@ -1,36 +1,32 @@
-// class Animal {
-//   constructor(name, age, gender, colour) {
-//     this.name = name;
-//     this.age = age;
-//     this.gender = gender;
-//     this.colour = colour;
-//   }
-// }
+class Animal {
+  constructor(name, age, gender, colour) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.colour = colour;
+  }
+}
 
-// class Cats extends Animal {
-//   constructor(name, age, gender, colour, fur) {
-//     super(name, age, gender, colour);
-//     this.fur = fur;
-//   }
-// }
+class Cats extends Animal {
+  constructor(name, age, gender, colour, fur) {
+    super(name, age, gender, colour);
+    this.fur = fur;
+  }
+}
 
-// class Fishes extends Animal {
-//   constructor(name, age, gender, colour, predation) {
-//     super(name, age, gender, colour);
-//     this.predation = predation;
-//   }
-// }
+class Fishes extends Animal {
+  constructor(name, age, gender, colour, predation) {
+    super(name, age, gender, colour);
+    this.predation = predation;
+  }
+}
 
-// class Birds extends Animal {
-//   constructor(name, age, gender, colour, wings) {
-//     super(name, age, gender, colour);
-//     this.wings = wings;
-//   }
-// }
-
-import { Cats } from "./modules/cats";
-import { Fishes } from "./modules/fishes";
-import { Birds } from "./modules/birds";
+class Birds extends Animal {
+  constructor(name, age, gender, colour, wings) {
+    super(name, age, gender, colour);
+    this.wings = wings;
+  }
+}
 
 document.getElementById("cato").addEventListener("click", () => {
   catInputs();
@@ -66,7 +62,7 @@ function createInputs(animalType, elements) {
 
 function catInputs() {
   const animalContainer = document.getElementById("animalContainer");
-  animalContainer.innerHTML = "";
+  animalContainer.innerHTML = ""; // cia neveikia su remove()
 
   const catInputs = createInputs("catInput", [
     { label: "Name", type: "text", name: "name" },
@@ -86,7 +82,7 @@ function catInputs() {
       catInfo.get("colour"),
       catInfo.get("fur")
     );
-
+    const inputsContainer = document.getElementById("savedInputs");
     const inputsTable = document.createElement("div");
     const catName = document.createElement("p");
     catName.innerText = "Name: " + cat.name;
@@ -100,6 +96,7 @@ function catInputs() {
     catFur.innerText = "Fur: " + cat.fur;
     document.body.append(inputsTable);
     inputsTable.append(catName, catAge, catGender, catColour, catFur);
+    inputsContainer.append(inputsTable);
     console.log(cat);
     catInputs.reset();
   });
@@ -108,7 +105,7 @@ function catInputs() {
 
 function fishInputs() {
   const animalContainer = document.getElementById("animalContainer");
-  animalContainer.innerHTML = "";
+  animalContainer.innerHTML = ""; // cia neveikia su remove()
 
   const fishInputs = createInputs("fishInput", [
     { label: "Name", type: "text", name: "name" },
@@ -128,6 +125,7 @@ function fishInputs() {
       fishInfo.get("colour"),
       fishInfo.get("predation")
     );
+    const inputsContainer = document.getElementById("savedInputs");
     const inputsTable = document.createElement("div");
     const fishName = document.createElement("p");
     fishName.innerText = "Name: " + fish.name;
@@ -147,6 +145,7 @@ function fishInputs() {
       fishColour,
       fishPredation
     );
+    inputsContainer.append(inputsTable);
     console.log(fish);
     fishInputs.reset();
   });
@@ -155,7 +154,7 @@ function fishInputs() {
 
 function birdInputs() {
   const animalContainer = document.getElementById("animalContainer");
-  animalContainer.innerHTML = "";
+  animalContainer.innerHTML = ""; // cia neveikia su remove()
 
   const birdInputs = createInputs("birdInput", [
     { label: "Name", type: "text", name: "name" },
@@ -175,6 +174,7 @@ function birdInputs() {
       birdInfo.get("colour"),
       birdInfo.get("wings")
     );
+    const inputsContainer = document.getElementById("savedInputs");
     const inputsTable = document.createElement("div");
     const birdName = document.createElement("p");
     birdName.innerText = "Name: " + bird.name;
@@ -188,6 +188,7 @@ function birdInputs() {
     birdWings.innerText = "Wings: " + bird.wings;
     document.body.append(inputsTable);
     inputsTable.append(birdName, birdAge, birdGender, birdColour, birdWings);
+    inputsContainer.append(inputsTable);
     console.log(bird);
     birdInputs.reset();
   });

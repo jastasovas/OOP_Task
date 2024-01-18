@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+#savedInputs {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+#cato,
+#fishy,
+#birdy {
+  margin: 20px 0px;
+  width: 150px;
+  height: 30px;
+  background-color: blueviolet;
+  color: white;
+}
